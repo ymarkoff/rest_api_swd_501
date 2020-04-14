@@ -18,6 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-// Test Login
 Route::post('auth', 'PoiUserController@attempt_login');
+Route::delete('auth', 'PoiUserController@logout');

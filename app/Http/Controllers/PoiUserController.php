@@ -18,6 +18,15 @@ class PoiUserController extends Controller
             ])->first();
 
         if($user) {
+            /* Set the authData session array if it does not exist */
+            $userSessions = $request->session()->get('authData');
+            if(!$userSessions) {
+                $request->session()->put('authData', []);
+            }
+
+            $request->session()->put('authData.userId', $user['id']);
+            $request->session()->put('authData.isAdmin', $user['isadmin']);
+
             return ['success' => TRUE,
                     'user_data' => [
                         'id' => $user['id'],
@@ -28,5 +37,12 @@ class PoiUserController extends Controller
             return ['success'=> FALSE,
                     'error_message' => 'Wrong username or password'];
         }
+    }
+
+    public function logout(Request $request) {
+        $request->session()->forget('authData');
+
+        return['success'=> TRUE,
+               'response_message'=> 'You\'re now logged out of the system'];
     }
 }
