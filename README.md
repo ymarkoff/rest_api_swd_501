@@ -2,6 +2,11 @@
 A RESTful API for a simple **"Points of Interest"** application.
 
 ## Changelog
+
+#### 15 April 2020
+* JWT(JSON Web Tokens) authentication introduced, replacing the previously implemented session management
+  * Tokens are currently expected as query parameters to avoid issues with Authorization header on some PHP server configurations
+
 #### 14 April 2020
 * Session management added to user authorisation
   * Session created during `PoiUserController::attemptLogin()`
