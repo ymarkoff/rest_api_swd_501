@@ -18,6 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/**
+ * Auth routes
+ */
 Route::post('auth', 'PoiUserController@attemptLogin');
 Route::delete('auth', 'PoiUserController@logout');
 Route::get('auth', 'PoiUserController@getAuthData');
+
+/**
+ * Points Of Interest routes
+ */
+Route::post('points', 'PointOfInterestController@createPoint');

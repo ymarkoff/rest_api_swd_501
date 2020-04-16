@@ -3,6 +3,9 @@ A RESTful API for a simple **"Points of Interest"** application.
 
 ## Changelog
 
+#### 16 April 2020
+  * "Add Point of Interest" endpoint added and implemented(secured to authenticated users)
+
 #### 15 April 2020
 * JWT(JSON Web Tokens) authentication introduced, replacing the previously implemented session management
   * Tokens are currently expected as query parameters to avoid issues with Authorization header on some PHP server configurations
