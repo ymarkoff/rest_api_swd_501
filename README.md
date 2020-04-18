@@ -3,6 +3,9 @@ A RESTful API for a simple **"Points of Interest"** application.
 
 ## Changelog
 
+#### 18 April 2020
+  * "Review Point of Interest" and "Get Reviews for a Point" endpointds implemented(auth secured)
+
 #### 16 April 2020
   * "Add Point of Interest" endpoint added and implemented(secured to authenticated users)
 

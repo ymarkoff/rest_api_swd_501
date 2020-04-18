@@ -29,3 +29,10 @@ Route::get('auth', 'PoiUserController@getAuthData');
  * Points Of Interest routes
  */
 Route::post('points', 'PointOfInterestController@createPoint');
+Route::get('points', 'PointOfInterestController@getPoints');
+Route::get('points/{pointID}/reviews', 'PoiReviewController@getPointReviews');
+
+/**
+ * Review routes
+ */
+Route::post('reviews', 'PoiReviewController@createReview');

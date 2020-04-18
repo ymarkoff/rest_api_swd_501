@@ -10,9 +10,19 @@ use App\Http\Resources\PointOfInterest as PointOfInterestResource;
 class PointOfInterestController extends Controller
 {
     //
+    public function getPoints(Request $request) {
+        $user = auth()->authenticate();
+        if($user) {
+            $point = new PointOfInterest();
+
+            // return $point::all();
+            return $point->orderByDesc('id')->get();
+        }
+    }
+
     public function createPoint(Request $request) {
         $user = auth()->authenticate();
-        if ($user) {
+        if($user) {
             $point = new PointOfInterest();
 
             $pointData = $request->input('point_data');
@@ -29,12 +39,6 @@ class PointOfInterestController extends Controller
             return [
                 'success'  => TRUE,
                 'response_message'   => 'Point added successfuly!'
-            ];
-        }
-        else {
-            return [
-                'success'  => TRUE,
-                'response_message'   => 'You must authenticate first!'
             ];
         }
     }
